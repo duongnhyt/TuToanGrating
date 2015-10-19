@@ -1,0 +1,11 @@
+RewriteEngine On
+#RewriteLog "/path/logs/rewrite.log" #make sure path is there!
+#RewriteLogLevel 9
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+
+RewriteRule ^index.html$ index.php
+RewriteRule ^content/([a-zA-Z0-9_-]+).html$ index.php?id=$1
+RewriteRule ^product/([a-zA-Z0-9_-]+).html$ index.php?pid=$1
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?cid=$2
